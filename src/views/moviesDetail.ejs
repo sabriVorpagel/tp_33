@@ -24,11 +24,20 @@
         <h5>La pelicula no tiene genero</h5>
     <% } %>
     <br>
-    <section>
+    <h5>Actores:</h5>
+        <% if (movie.actors.length) { %>
+            <ul>
+                <% movie.actors.forEach(actor => { %>
+                    <li><a href="/actors/detail<%= actor.id %> "><%= actor.first_name %> <%= actor.last_name %>   </a></li>
+                <% }) %>
+            </ul>
+        <% }else{ %>
+            <p>La pelicula no tiene actores</p>
+        <% } %>
+    <section style="display: flex; gap: 5px; margin-top:20px">
         <!--Aquí debe colocar los botones de Modificar - Borrar y Listado de Películas-->
-        <a href="/movies/edit/<%= movie.id %>"> Editar</a>
-        <br>
-        <a href="/movies/delete/<%= movie.id %>">Eliminar</a>
+        <a class="botonAgregar" href="/movies/edit/<%= movie.id %>"> Editar</a>
+        <a class="botonBorrar" href="/movies/delete/<%= movie.id %>">Eliminar</a>
     </section>
 
 </body>

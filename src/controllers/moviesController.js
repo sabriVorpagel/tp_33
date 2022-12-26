@@ -33,7 +33,6 @@ const moviesController = {
             ]
         })
             .then(movie => {
-                return res.send(movie)
                 res.render('moviesDetail.ejs', {movie});
             });
     },
